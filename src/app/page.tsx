@@ -1,4 +1,4 @@
-import { LibComponents } from "./components";
+import { LibComponents } from "./core/components";
 
 export default function Home() {
   return (

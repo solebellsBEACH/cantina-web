@@ -1,7 +1,4 @@
-interface LibButtonProps {
-    label: string,
-    onClick: () => void
-}
+import { LibButtonProps } from "../../interfaces/components/button";
 
 export function Button({ label, onClick }: LibButtonProps) {
     return <button type="button"

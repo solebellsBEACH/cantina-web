@@ -1,15 +1,5 @@
-import { FaSearch } from "react-icons/fa";
-
-const declaredIcons = {
-    search: <FaSearch />
-}
-
-type DeclaredIconsType = keyof typeof declaredIcons;
-
-interface LibIconButtonProps {
-    onClick: () => void,
-    icon: DeclaredIconsType
-}
+import { declaredIcons } from "@/app/components/icons";
+import { LibIconButtonProps } from "@/app/components/interfaces/components/button";
 
 export function IconButton({ onClick, icon }: LibIconButtonProps) {
     return <button type="button"
