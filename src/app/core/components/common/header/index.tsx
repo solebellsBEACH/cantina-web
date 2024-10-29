@@ -3,6 +3,7 @@ import React from 'react';
 import { Container } from './styles';
 import { IconButton } from '../Buttons/IconButton';
 import { Link } from '../Link';
+import { Button } from '../Buttons';
 
 export const Header: React.FC = () => {
 
@@ -20,7 +21,8 @@ export const Header: React.FC = () => {
             {
               linkData.map((item, index) => <Link key={`header-link-${index}`} label={item.label} href="#" />)
             }
-            <IconButton onClick={() => { }} icon='search' />
+            <IconButton onClick={() => { }} icon='search' isTransparent />
+            <Button onClick={() => { }} icon='user' label='Profile' isTransparent />
           </div>
         </div>
       </nav>

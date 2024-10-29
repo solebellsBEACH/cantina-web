@@ -8,4 +8,13 @@
     --text-color: #3E3D3D;
     --button-hover-color: #004D99;
     --border-color: #A7C6ED;
+    --success-color: #4CAF50;
+    --warning-color: #FFC107;
+    --error-color: #FF5722;
+    --info-color: #17A2B8;
+    --light-gray: #E0E0E0;
+    --dark-gray: #4F4F4F;
+    --muted-color: #9E9E9E;
+    --highlight-color: #FFEB3B;
+    --overlay-color: rgba(0, 0, 0, 0.5);
 }

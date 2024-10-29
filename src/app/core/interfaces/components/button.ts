@@ -1,13 +1,18 @@
 import { declaredIcons } from "../../components/icons";
 
-export interface LibButtonProps {
-    label: string,
-    onClick: () => void
-}
-
 export type DeclaredIconsType = keyof typeof declaredIcons;
 
-export interface LibIconButtonProps {
+interface IButtonSharedProps {
     onClick: () => void,
+    isTransparent?: boolean,
+    className?: string
+}
+
+export interface LibIconButtonProps extends IButtonSharedProps {
     icon: DeclaredIconsType
+}
+
+export interface LibButtonProps extends IButtonSharedProps {
+    label: string,
+    icon?: DeclaredIconsType
 }
