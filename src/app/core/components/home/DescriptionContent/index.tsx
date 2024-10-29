@@ -1,7 +1,7 @@
 import React from 'react'
 import { faker } from '@faker-js/faker';
 
-export function DescriptionContent() {
+function DescriptionContent() {
     return (
         <section className='px-16 h-48 my-8'>
             <h3 className='font-semibold text-primary'>Cantina Web</h3>
@@ -13,3 +13,5 @@ export function DescriptionContent() {
         </section>
     )
 }
+
+export default DescriptionContent;

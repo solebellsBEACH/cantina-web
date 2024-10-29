@@ -6,6 +6,7 @@ export default function Home() {
       <LibComponents.CommonComponents.Header />
       <LibComponents.HomeComponents.ImageFliper />
       <LibComponents.HomeComponents.DescriptionContent />
+      <LibComponents.HomeComponents.ItemList />
     </div>
   );
 }
