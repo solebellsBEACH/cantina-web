@@ -12,6 +12,13 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "var(--primary-color)",
+        secondary: "var(--secondary-color)",
+        accent: "var(--accent-color)",
+        backgroundColor: "var(--background-color)",
+        text: "var(--text-color)",
+        buttonHover: "var(--button-hover-color)",
+        border: "var(--border-color)",
       },
     },
   },
@@ -19,4 +26,5 @@ const config: Config = {
     require('preline/plugin'),
   ],
 };
+
 export default config;
