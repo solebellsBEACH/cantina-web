@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import './variables.css';
+@import './typhograpy.css';
 
 * {
     transition: all 0.3s ease-in-out;

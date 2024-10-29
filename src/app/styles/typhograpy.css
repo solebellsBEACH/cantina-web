@@ -1,0 +1,53 @@
+:root {
+    --heading-color: #1C3A3E;
+    --text-color: #333333;
+    --line-height-heading: 1.25;
+    --line-height-body: 1.5;
+
+    --heading-size-1: 2.25rem;
+    --heading-size-2: 1.875rem;
+    --heading-size-3: 1.5rem;
+    --heading-size-4: 1.25rem;
+    --body-font-size: 1rem;
+}
+
+body {
+    h1 {
+        font-size: var(--heading-size-1);
+        font-weight: bold;
+        color: var(--heading-color);
+        line-height: var(--line-height-heading);
+        margin-bottom: 0.5em;
+    }
+
+    h2 {
+        font-size: var(--heading-size-2);
+        font-weight: bold;
+        color: var(--heading-color);
+        line-height: var(--line-height-heading);
+        margin-bottom: 0.5em;
+    }
+
+    h3 {
+        font-size: var(--heading-size-3);
+        font-weight: bold;
+        color: var(--heading-color);
+        line-height: var(--line-height-heading);
+        margin-bottom: 0.5em;
+    }
+
+    h4 {
+        font-size: var(--heading-size-4);
+        font-weight: bold;
+        color: var(--heading-color);
+        line-height: var(--line-height-heading);
+        margin-bottom: 0.5em;
+    }
+
+    p {
+        font-size: var(--body-font-size);
+        color: var(--text-color);
+        line-height: var(--line-height-body);
+        margin-bottom: 1em;
+    }
+}

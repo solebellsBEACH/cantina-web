@@ -8,4 +8,4 @@ const CommonComponents = {
     IconButton
 }
 
-export { CommonComponents };
+export default CommonComponents;
