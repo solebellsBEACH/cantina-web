@@ -11,12 +11,6 @@ body {
 }
 
 /* Custom Styles */
-header {
-    background-color: var(--primary-color);
-    color: var(--background-color);
-    padding: 20px;
-    text-align: center;
-}
 
 button {
     background-color: var(--accent-color);
