@@ -12,12 +12,12 @@
 }
 
 body {
+
     h1 {
         font-size: var(--heading-size-1);
         font-weight: bold;
         color: var(--heading-color);
         line-height: var(--line-height-heading);
-        margin-bottom: 0.5em;
     }
 
     h2 {
@@ -25,7 +25,6 @@ body {
         font-weight: bold;
         color: var(--heading-color);
         line-height: var(--line-height-heading);
-        margin-bottom: 0.5em;
     }
 
     h3 {
@@ -33,7 +32,6 @@ body {
         font-weight: bold;
         color: var(--heading-color);
         line-height: var(--line-height-heading);
-        margin-bottom: 0.5em;
     }
 
     h4 {
@@ -41,13 +39,11 @@ body {
         font-weight: bold;
         color: var(--heading-color);
         line-height: var(--line-height-heading);
-        margin-bottom: 0.5em;
     }
 
     p {
         font-size: var(--body-font-size);
         color: var(--text-color);
         line-height: var(--line-height-body);
-        margin-bottom: 1em;
     }
 }
