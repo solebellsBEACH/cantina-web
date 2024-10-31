@@ -1,0 +1,12 @@
+.content {
+    width: 75vw;
+    min-width: 320px;
+
+    @media (max-width: 1024px) {
+        width: 80vw;
+    }
+
+    @media (max-width: 768px) {
+        width: 95vw;
+    }
+}
