@@ -1,5 +1,4 @@
 import React from 'react'
-import { faker } from '@faker-js/faker';
 
 function DescriptionContent() {
     return (
@@ -9,7 +8,7 @@ function DescriptionContent() {
                 Fuja das filas <br />
                 Compre seu lanche pelo site
             </h1>
-            <p>{faker.lorem.words(30)}</p>
+            <p>jokpçsfjhfhkjwhf fjkwhfgjkbvibgihbjgk3uhgejhgbegbbg jokpçsfjhfhkjwhf fjkwhfgjkbvibgihbjgk3uhgejhgbegbbgjokpçsfjhfhkjwhf fjkwhfgjkbvibgihbjgk3uhgejhgbegbbgjokpçsfjhfhkjwhf fjkwhfgjkbvibgihbjgk3uhgejhgbegbbgjokpçsfjhfhkjwhf fjkwhfgjkbvibgihbjgk3uhgejhgbegbbgjokpçsfjhfhkjwhf fjkwhfgjkbvibgihbjgk3uhgejhgbegbbg</p>
         </section>
     )
 }
