@@ -1,0 +1,5 @@
+.product-content {
+    --content-width: 480px;
+
+    width: var(--content-width);
+}
