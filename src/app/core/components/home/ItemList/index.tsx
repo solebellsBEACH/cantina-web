@@ -1,9 +1,19 @@
 'use client';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button } from '../../common/Buttons'
 import ProductItem from '../ProductItem';
+import { fetchProducts } from '@/app/core/store/reducers/products';
+import { useAppDispatch, useAppSelector } from '@/app/core/store/hooks';
 
 function ItemList() {
+
+    const dispatch = useAppDispatch();
+    const { products, loading, error, } = useAppSelector(state => state.products);
+
+    useEffect(() => {
+        dispatch(fetchProducts({ page: 1, limit: 10 }));
+        console.log(products)
+    }, [dispatch]);
 
     const [quickFilterSelected, setQuickFilterSelected] = React.useState(0)
 
@@ -17,10 +27,11 @@ function ItemList() {
         label: "Cantina 3"
     }]
 
-    const itens = [{}, {}, {}, {}, {}, {}, {}, {}, {}]
-
     return (
         <section className='px-16 h-48 my-8'>
+            {loading && <p>Carregando...</p>}
+            {error && <p>Erro: {error}</p>}
+
             <h1 className='mb-4'>Ver Itens</h1>
             {quickFilters.map((item, index) =>
                 <Button
@@ -32,7 +43,7 @@ function ItemList() {
                     key={`quick-filters-${index}`} label={item.label} />)}
             <div className='grid grid-cols-4 gap-4 mt-5'>
                 {
-                    itens.map((item, index) => <ProductItem key={`product-itens-${index}`} />)
+                    (products || []).map((item, index) => <ProductItem key={`product-itens-${index}`} data={item} />)
                 }
             </div>
         </section>

@@ -1,9 +1,9 @@
 import { useAppDispatch } from "@/app/core/store/hooks";
 import { Button } from "../../common/Buttons"
 import { applicationActions } from "@/app/core/store/slices/application";
+import { Product } from "@/app/core/services/api/products";
 
-
-const ProductItem = () => {
+const ProductItem = ({ data }: { data: Product }) => {
 
     const dispatch = useAppDispatch();
 
@@ -15,13 +15,13 @@ const ProductItem = () => {
             <div className="flex justify-between py-4">
                 <div>
                     <h3 className="text-lg font-bold text-gray-800">
-                        Coxinha
+                        {data.name}
                     </h3>
                     <p className="text-sm text-gray-500 dark:text-neutral-400">
-                        Cantina 1
+                        Cantina {data.establishmentId}
                     </p>
                 </div>
-                <h4>R$ 5,00</h4>
+                <h4>{data.price}</h4>
             </div>
             <Button label="Comprar" className="w-full justify-center flex" onClick={handleBuyButton} />
         </div>

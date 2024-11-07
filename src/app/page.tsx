@@ -6,7 +6,6 @@ export default function Home() {
 
   const [isOpenProductModal, setIsOpenProductModal] = useState(false)
 
-
   return (
     <>
       <div>
