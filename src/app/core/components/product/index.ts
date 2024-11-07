@@ -1,7 +1,9 @@
 import ProductInformationsContent from "./ProductInformationsContent";
+import ProductModal from "./ProductModal";
 
 const ProductComponents = {
-    ProductInformationsContent
+    ProductInformationsContent,
+    ProductModal
 }
 
 export default ProductComponents
