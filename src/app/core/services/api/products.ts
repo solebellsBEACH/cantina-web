@@ -6,6 +6,7 @@ export interface Product {
     price: number;
     description: string;
     establishmentId: number;
+    image_url: string
 }
 
 export interface GetAllProductsParams {

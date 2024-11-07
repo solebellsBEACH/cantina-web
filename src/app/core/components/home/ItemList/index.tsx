@@ -1,31 +1,27 @@
 'use client';
-import React, { useEffect } from 'react'
-import { Button } from '../../common/Buttons'
+import React, { useEffect, useState } from 'react';
 import ProductItem from '../ProductItem';
 import { fetchProducts } from '@/app/core/store/reducers/products';
 import { useAppDispatch, useAppSelector } from '@/app/core/store/hooks';
 
 function ItemList() {
-
     const dispatch = useAppDispatch();
-    const { products, loading, error, } = useAppSelector(state => state.products);
+    const { products, loading, error, totalPages } = useAppSelector(state => state.products);
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(12);
 
     useEffect(() => {
-        dispatch(fetchProducts({ page: 1, limit: 10 }));
-        console.log(products)
-    }, [dispatch]);
+        dispatch(fetchProducts({ page: currentPage, limit: itemsPerPage }));
+    }, [dispatch, currentPage]);
 
-    const [quickFilterSelected, setQuickFilterSelected] = React.useState(0)
+    const handleNextPage = () => {
+        setCurrentPage(prevPage => prevPage + 1);
+    };
 
-    const quickFilters = [{
-        label: "Cantina 1"
-    },
-    {
-        label: "Cantina 2"
-    },
-    {
-        label: "Cantina 3"
-    }]
+    const handlePreviousPage = () => {
+        setCurrentPage(prevPage => Math.max(prevPage - 1, 1));
+    };
 
     return (
         <section className='px-16 h-48 my-8'>
@@ -33,21 +29,42 @@ function ItemList() {
             {error && <p>Erro: {error}</p>}
 
             <h1 className='mb-4'>Ver Itens</h1>
-            {quickFilters.map((item, index) =>
+
+            <div className='grid grid-cols-4 gap-4 mt-5'>
+                {(products || []).map((item, index) => (
+                    <ProductItem key={`product-items-${index}`} data={item} />
+                ))}
+            </div>
+
+            <div className="flex justify-center items-center my-8">
+                <button
+                    onClick={handlePreviousPage}
+                    disabled={currentPage === 1}
+                    className="mr-4 px-4 py-2 bg-gray-200 text-black hover:bg-gray-300"
+                >
+                    Anterior
+                </button>
+                <span className="px-4">{currentPage}</span>
+                <button
+                    disabled={currentPage === totalPages}
+                    onClick={handleNextPage}
+                    className="ml-4 px-4 py-2 bg-gray-200 text-black hover:bg-gray-300"
+                >
+                    Próximo
+                </button>
+            </div>
+        </section>
+    );
+}
+
+export default ItemList;
+
+
+{/* {quickFilters.map((item, index) =>
                 <Button
                     className={`mr-2 ${quickFilterSelected !== index && 'text-black bg-lightGray hover:text-background'}`}
                     onClick={() => {
                         console.log(item, index)
                         setQuickFilterSelected(index)
                     }}
-                    key={`quick-filters-${index}`} label={item.label} />)}
-            <div className='grid grid-cols-4 gap-4 mt-5'>
-                {
-                    (products || []).map((item, index) => <ProductItem key={`product-itens-${index}`} data={item} />)
-                }
-            </div>
-        </section>
-    )
-}
-
-export default ItemList
+                    key={`quick-filters-${index}`} label={item.label} />)} */}

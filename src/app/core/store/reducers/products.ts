@@ -1,14 +1,6 @@
-import { createSlice, createAsyncThunk, ActionReducerMapBuilder } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createAsyncThunk, ActionReducerMapBuilder } from '@reduxjs/toolkit';
 import httpInstance from '../../services/api/httpInstance';
-
-interface Product {
-    id: number;
-    name: string;
-    price: number;
-    description: string;
-    establishmentId: number;
-}
+import { Product } from '../../services/api/products';
 
 interface ProductsState {
     products: Product[];

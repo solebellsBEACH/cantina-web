@@ -4,26 +4,45 @@ import { applicationSelectors } from '@/app/core/store/selectors/application';
 import { applicationActions } from '@/app/core/store/slices/application';
 import React from 'react'
 import styled from 'styled-components';
+import { Button } from '../../common/Buttons';
 
 export default function ProductModal() {
-    const dispatch = useAppDispatch();
-    const modalIsOpen = useAppSelector(applicationSelectors.selectModalIsOpen);
+  const dispatch = useAppDispatch();
+  const modalIsOpen = useAppSelector(applicationSelectors.selectModalIsOpen);
+  const modalModalData = useAppSelector(applicationSelectors.selectModalData);
 
-    if (!modalIsOpen) return <></>;
+  if (!modalIsOpen || !modalModalData) return <></>;
 
-    const closeModal = () => {
-        dispatch(applicationActions.setModalState());
-    };
+  const closeModal = () => {
+    dispatch(applicationActions.closeModal());
+  };
 
-    return (
-        <Backdrop onClick={closeModal}>
-            <ModalContainer onClick={(e) => e.stopPropagation()}>
-                <h2>Modal Title</h2>
-                <p>This is the modal content. Click outside to close.</p>
-                <CloseButton onClick={closeModal}>Close</CloseButton>
-            </ModalContainer>
-        </Backdrop>
-    );
+  const handleBuyButton = () => {
+    closeModal()
+  }
+
+  return (
+    <Backdrop onClick={closeModal}>
+      <ModalContainer className='rounded-xl bg-white m-2' onClick={(e) => e.stopPropagation()}>
+        <img className="h-100 rounded-t-xl w-full" alt="Card Image" src={modalModalData.image_url} />
+        <div className="px-2">
+          <div className="flex justify-between py-4">
+            <div>
+              <h3 className="text-lg font-bold text-gray-800">
+                {modalModalData.name}
+              </h3>
+              <h4 className="text-sm text-primary">
+                Cantina {modalModalData.establishmentId}
+              </h4>
+              <h5>{modalModalData.description}</h5>
+            </div>
+            <h4>{modalModalData.price}</h4>
+          </div>
+          <Button label="Comprar" className="w-full justify-center flex" onClick={handleBuyButton} />
+        </div>
+      </ModalContainer>
+    </Backdrop>
+  );
 }
 
 
