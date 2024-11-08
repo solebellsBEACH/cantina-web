@@ -1,10 +1,7 @@
 "use client"
-import { useState } from "react";
 import { LibComponents } from "./core/components";
 
 export default function Home() {
-
-  const [isOpenProductModal, setIsOpenProductModal] = useState(false)
 
   return (
     <>

@@ -1,13 +1,6 @@
+import { Product } from "../../interfaces/entities/product";
 import httpInstance from "./httpInstance";
 
-export interface Product {
-    id: number;
-    name: string;
-    price: number;
-    description: string;
-    establishmentId: number;
-    image_url: string
-}
 
 export interface GetAllProductsParams {
     page?: number;

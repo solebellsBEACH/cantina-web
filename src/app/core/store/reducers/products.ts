@@ -1,6 +1,7 @@
 import { createAsyncThunk, ActionReducerMapBuilder } from '@reduxjs/toolkit';
 import httpInstance from '../../services/api/httpInstance';
-import { Product } from '../../services/api/products';
+import { Product } from '../../interfaces/entities/product';
+
 
 interface ProductsState {
     products: Product[];

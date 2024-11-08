@@ -3,7 +3,7 @@ import { declaredIcons } from "../../components/icons";
 export type DeclaredIconsType = keyof typeof declaredIcons;
 
 interface IButtonSharedProps {
-    onClick: () => void,
+    onClick: (e?: any) => void,
     isTransparent?: boolean,
     className?: string
 }

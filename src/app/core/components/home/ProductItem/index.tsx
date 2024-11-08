@@ -1,7 +1,8 @@
 import { useAppDispatch } from "@/app/core/store/hooks";
 import { Button } from "../../common/Buttons"
 import { applicationActions } from "@/app/core/store/slices/application";
-import { Product } from "@/app/core/services/api/products";
+import { Product } from "@/app/core/interfaces/entities/product";
+
 
 const ProductItem = ({ data }: { data: Product }) => {
 
