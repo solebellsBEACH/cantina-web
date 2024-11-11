@@ -35,3 +35,9 @@ button:hover {
     padding: 15px;
     border-radius: 5px;
 }
+
+.image-flipper {
+    height: -webkit-fill-available;
+    width: 100%;
+    object-fit: cover;
+}

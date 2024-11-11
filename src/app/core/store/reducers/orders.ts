@@ -43,12 +43,12 @@ const initialState: OrdersState = {
 // Thunk para buscar pedidos
 export const fetchOrders = createAsyncThunk(
     'orders/fetchOrders',
-    async (params: { page: number; limit: number; userId?: number; status?: string }, thunkAPI) => {
+    async (params: { page?: number; limit?: number; userId?: number; status?: string }, thunkAPI) => {
         try {
             const response = await httpInstance.get('/orders', {
                 params: {
-                    page: params.page,
-                    limit: params.limit,
+                    page: params?.page || 1,
+                    limit: params?.limit || 10,
                     userId: params.userId,
                     status: params.status,
                 },

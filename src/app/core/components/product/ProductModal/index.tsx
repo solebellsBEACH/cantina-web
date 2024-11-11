@@ -7,8 +7,6 @@ import styled from 'styled-components';
 import { Button } from '../../common/Buttons';
 import { toast } from 'react-toastify';
 import { createOrder } from '@/app/core/store/reducers/orders';
-import { useSelector } from 'react-redux';
-import { selectUser } from '@/app/core/store/selectors/user';
 import { LocalStorageUtils } from '@/app/core/shared/utils/localStorage';
 
 export default function ProductModal() {
