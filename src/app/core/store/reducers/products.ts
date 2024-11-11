@@ -31,7 +31,8 @@ export const fetchProducts = createAsyncThunk(
                     price: params.price,
                 },
             });
-            return response.data;
+
+            return response?.data;
         } catch (error: any) {
             return thunkAPI.rejectWithValue(error.response?.data || 'Erro ao buscar produtos');
         }
@@ -48,7 +49,7 @@ const extraReducers = (builder: ActionReducerMapBuilder<ProductsState>) => {
         })
         .addCase(fetchProducts.fulfilled, (state, action) => {
             state.loading = false;
-            state.products = action.payload.items;
+            state.products = action.payload.data;
             state.count = action.payload.count;
             state.totalPages = action.payload.totalPages;
         })

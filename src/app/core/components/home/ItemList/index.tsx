@@ -12,6 +12,7 @@ function ItemList() {
     const [itemsPerPage, setItemsPerPage] = useState(12);
 
     useEffect(() => {
+        console.log(products)
         dispatch(fetchProducts({ page: currentPage, limit: itemsPerPage }));
     }, [dispatch, currentPage]);
 

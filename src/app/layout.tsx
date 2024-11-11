@@ -16,8 +16,6 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,8 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <Provider store={store}>
-      <html lang="en">
 
+      <html lang="en">
+        {/* <ToastContainer /> */}
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >

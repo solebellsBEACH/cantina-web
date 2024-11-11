@@ -9,7 +9,6 @@ const ProductItem = ({ data }: { data: Product }) => {
     const dispatch = useAppDispatch();
 
     const handleBuyButton = () => {
-
         dispatch(applicationActions.openModal(data));
     }
 

@@ -1,26 +1,30 @@
 "use client"
 import { useEffect, useState } from "react";
 import { LibComponents } from "../core/components";
-import { useAppDispatch, useAppSelector } from "../core/store/hooks";
+import { useAppDispatch } from "../core/store/hooks";
 import { fetchUser } from "../core/store/reducers/user";
 import { useRouter } from "next/navigation";
+import { LocalStorageUtils } from "../core/shared/utils/localStorage";
 
 export default function Login() {
     const dispatch = useAppDispatch();
     const [email, setEmail] = useState<string>('');
-    const { user } = useAppSelector(state => state.user);
+
     const router = useRouter()
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
         console.log('Email:', email);
         dispatch(fetchUser({ email }));
+
+        const user = LocalStorageUtils.getUser()
+        if (user) router.push('/');
     };
 
     useEffect(() => {
-        console.log(user)
+        const user = LocalStorageUtils.getUser()
         if (user) router.push('/');
-    }, [user])
+    }, [])
 
     return (
         <div className="h-screen w-full flex justify-center items-center">

@@ -1,6 +1,7 @@
 import { ActionReducerMapBuilder, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { User } from "../../interfaces/entities/user";
 import httpInstance from "../../services/api/httpInstance";
+import { LocalStorageUtils } from "../../shared/utils/localStorage";
 
 interface UserState {
     user: User | null
@@ -41,6 +42,7 @@ const extraReducers = (builder: ActionReducerMapBuilder<UserState>) => {
         })
         .addCase(fetchUser.fulfilled, (state, action) => {
             console.log(action.payload)
+            LocalStorageUtils.saveUser(action.payload.user)
             state.loading = false;
             state.user = action.payload.user;
 
