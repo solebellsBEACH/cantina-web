@@ -12,8 +12,7 @@ import { selectOrders } from '@/app/core/store/selectors/orders';
 import { RootState } from '@/app/core/store/store';
 import styled from 'styled-components';
 import { User } from '@/app/core/interfaces/entities/user';
-
-
+import { useRouter } from "next/navigation";
 
 export default function UserModal({ closeModal, modalData }: {
   closeModal: () => void, modalData: {
@@ -21,6 +20,8 @@ export default function UserModal({ closeModal, modalData }: {
     user: User | null
   }
 }) {
+
+
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -96,6 +97,7 @@ export const Header: React.FC = () => {
     orders: Order[],
     user: User | null
   } | null>(null)
+  const router = useRouter()
 
   useEffect(() => {
     const userData = LocalStorageUtils.getUser();
@@ -105,6 +107,11 @@ export const Header: React.FC = () => {
       userId: userData?.id
     }))
   }, []);
+
+  const handleLogOut = () => {
+    LocalStorageUtils.removeUser()
+    router.push('/login');
+  }
 
   const linkData = [
     // { label: 'Cantinas' },
@@ -130,7 +137,7 @@ export const Header: React.FC = () => {
               {linkData.map((item, index) => (
                 <Link key={`header-link-${index}`} label={item.label} href="#" onClick={item.onClick} />
               ))}
-              <IconButton onClick={() => { }} icon="search" isTransparent />
+              <IconButton onClick={handleLogOut} icon="signOut" isTransparent />
               <Button onClick={() => { }} icon="user" label={`Olá ${user?.name}`} isTransparent />
             </div>
           </div>

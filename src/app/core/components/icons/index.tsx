@@ -1,6 +1,7 @@
-import { FaSearch, FaRegUser } from "react-icons/fa";
+import { FaSearch, FaRegUser, FaSignOutAlt } from "react-icons/fa";
 
 export const declaredIcons = {
     search: <FaSearch />,
-    user: <FaRegUser />
+    user: <FaRegUser />,
+    signOut: <FaSignOutAlt />
 }

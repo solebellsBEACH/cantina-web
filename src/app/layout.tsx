@@ -25,7 +25,7 @@ export default function RootLayout({
     <Provider store={store}>
 
       <html lang="en">
-        {/* <ToastContainer /> */}
+        <title>Cantina WEB</title>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >

@@ -8,11 +8,14 @@ function ItemList() {
     const dispatch = useAppDispatch();
     const { products, loading, error, totalPages } = useAppSelector(state => state.products);
 
+    const state = useAppSelector(state => state);
+
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(12);
 
     useEffect(() => {
         console.log(products)
+        console.log(state)
         dispatch(fetchProducts({ page: currentPage, limit: itemsPerPage }));
     }, [dispatch, currentPage]);
 
